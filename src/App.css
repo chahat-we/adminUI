@@ -1,38 +1,196 @@
-.App {
-  text-align: center;
+.styled-table {
+  border-collapse: collapse;
+  margin: 2px 0px 25px 0px;
+  font-size: 0.9em;
+  font-family: sans-serif;
+  min-width: 400px;
+  box-shadow: 0 0 20px rgb(0 0 0 / 15%);
+  border-radius: 3px 3px 15px 15px;
+  overflow: hidden;
+}
+.styled-table thead {
+  background-color:#029879;
+}
+.styled-table th {
+  color: #fff;
+}
+.styled-table thead tr {
+  background-color: #009879;
+  color: #ffffff;
+  text-align: left;
+}
+.styled-table th, .styled-table td {
+    padding: 12px 15px;
+    text-align: left;
+}
+.styled-table tbody tr {
+  border-bottom: 1px solid #dddddd;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+/* .styled-table tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+} */
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.styled-table tbody tr:last-of-type {
+  border-bottom: 2px solid #009879;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.styled-table tbody tr.active-row {
+  font-weight: bold;
+  color: #009879;
+  background-color: #f3f3f3;
+}
+.action-icon{
+  cursor: pointer;
+}
+.delete-all-btn{
+  border: none;
+  background: #ff3a3acf;
+  color: #fff;
+  padding: 10px;
+  border-radius: 13px;
+  cursor: pointer;
+  font-weight: bold;
+}
+.delete-all-btn:hover{
+  border: none;
+  background: #e02727cf;
+}
+.pagination {
+  display: inline-block;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+.pagination p {
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+
+.pagination p.active {
+  background-color: #4CAF50;
   color: white;
+  border-radius: 5px;
 }
 
-.App-link {
-  color: #61dafb;
+.pagination p:hover:not(.active) {
+  background-color: #ddd;
+  border-radius: 5px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.searchbox{
+  width: -webkit-fill-available;
+  border: 2px solid #029879;
+  border-radius: 15px 15px 3px 3px;
+  outline: none;
+  transition: 0.5s;
+  padding: 10px 20px;
+}
+.searchbox::placeholder{
+  color: #029879;
+  font-weight: 600;
+  text-transform: capitalize;
+  transition: 0.5s;
+}
+.searchbox:focus{
+  border: 2px solid #ff3a3acf;
+}
+.searchbox:focus::placeholder{
+  color: #ff3a3acf;
+}
+.navigation-btn {
+  cursor: pointer;
+  font-size: 34px;
+  padding: 0px !important;
+  margin: 9px;
+}
+.navigation-btn:hover {
+  background-color: transparent !important;
+  /* border-radius: 5px; */
+}
+/* -----------MODAL------------ */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.modal {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 6px;
+  min-width: 400px;
+}
+.modal-input {
+  display: block;
+  padding: 10px;
+  margin-bottom: 14px;
+  border: 2px solid #029879;
+  border-radius: 3px;
+  outline: none;
+  transition: 0.5s;
+  width: -webkit-fill-available;
+}
+.modal-input:focus{
+  border: 2px solid #ff3a3acf;
+}
+
+.modal-input::placeholder {
+  text-transform: capitalize;
+  color: #009879;
+  transition: 0.5s;
+}
+.modal-input:focus::placeholder {
+  color: #ff3a3acf;
+}
+.action-btns{
+  display: flex;
+  column-gap: 10px;
+}
+.action-btns .btn {
+  font-size: 17px;
+  font-weight: bolder;
+  text-transform: capitalize;
+  padding: 10px 0px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  flex-grow: 1;
+  cursor: pointer;
+}
+.update-btn {
+  background-color: #029879;
+  transition: 0.5s;
+}
+.update-btn.disable {
+  /* background-color: #9f9f9f; */
+  background-color: rgb(218, 218, 218);
+  cursor: no-drop;
+  color: rgba(16, 16, 16, 0.4);
+}
+.cancel-btn {
+  background-color: #ff3a3acf;
+}
+
+
+
+/* -----------LOADER------------- */
+
+.loader{
+  width: 70px;
+  display: flex;
+  align-items: center;
+  height: 100vh;
+  margin: auto;
+  animation: rotate360 1s linear infinite;
+}
+@keyframes rotate360 {
+  100% {transform: rotate(360deg);}
 }
